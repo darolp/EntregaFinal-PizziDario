@@ -1,38 +1,168 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'BeeRidgeVintageBold';
+  src: url('./fonts/BeeRidgeVintageBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rusty Fever_Bold_DEMO';
+  src: url('./fonts/Rusty\ Fever_Bold_DEMO.otf') format('OpenType');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body{
+  background-color: #211f1f !important;
+}
+
+.navBar{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding:  15px 0;
+  background-color: rgba(0, 0, 0, 0.815);
+  width: 100%;
+  z-index: 1;
+}
+
+.logoContainer{
+  height: 100px;
+  width: 100px;
+  border: 1px solid #D49B41;
+  border-radius: 48%;
+
+}
+
+.logo{
+  width: 100%;
+  border-radius: 50%;
+
+}
+
+.listContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 60px;
+}
+
+.listItem{
+  list-style: none;
+  font-size: 2rem;
+  color: #D49B41;
+  cursor: pointer;
+  font-family: 'Rusty Fever_Bold_DEMO' , sans-serif;
+}
+
+.listItem:hover{
+  animation: shadow-drop-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes shadow-drop-bottom {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #D49B41;
+            box-shadow: 0 0 0 0 #D49B41;
+  }
+  100% {
+    -webkit-box-shadow: 0 12px 20px -12px #D49B41;
+            box-shadow: 0 12px 20px -12px #D49B41;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cartContainer{
+  position: relative;
+}
+
+.cartIcon{
+  width: 2.5rem;
+  
+}
+
+.cartCount{
+  height: 20px;
+  width: 20px;  
+  position: absolute;
+  z-index: 1;
+  background-color: #5999b2;
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8rem;
+  transform: translateX(30px) translateY(-10px);
+}
+
+.itemListContainer{
+  text-align: center;
+  font-size: 2.3rem;
+  font-family: 'BeeRidgeVintageBold', sans-serif;
+  color: #D49B41;
+  padding-top: 100px;
+}
+
+.InfoRow{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+  background-color: #444;
+  padding:  20px 0;
+}
+
+.infoCard{
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+}
+
+.infoCard:hover{
+  background-color: #555;
+  transition: all 1s;
+}
+
+.infoCardIcon{
+  width: 35px;
+  height: 35px;
+}
+
+.infoCardIcon > img{
+  width: 100%;
+}
+
+.infoCardTitle{
+  font-weight: 600;
+  font-family: 'GT Pressura Mono';
+  color: #eee;
+}
+
+.infoCardText{
+  width: 60%;
+  font-family: 'GT Pressura Mono';
+  text-align: center;
+  color: #eee;
+}
+
+.products{
+  color: #eee;
+  display: flex;
+}
+
+h2{
+  color: #eee;
+}
+.featuredProductsFilter{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.featuredProductsFilter > button{
+  padding: 10px;
+  margin: 0 10px;
+  background-color: blue;
 }
