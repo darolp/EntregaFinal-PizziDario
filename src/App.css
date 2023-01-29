@@ -1,91 +1,178 @@
+/* FONTS */
+
 @font-face {
   font-family: 'BeeRidgeVintageBold';
   src: url('./fonts/BeeRidgeVintageBold.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Rusty Fever_Bold_DEMO';
   src: url('./fonts/Rusty\ Fever_Bold_DEMO.otf') format('OpenType');
 }
 
+/* NORMALIZE */
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body{
+/* GENERALS */
+
+body {
   background-color: #211f1f !important;
 }
 
-.navBar{
-  position: -webkit-sticky;
+/* NAVBAR */
+
+.navBar {
   position: sticky;
   top: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding:  15px 0;
+  padding: 15px 0;
   background-color: rgba(0, 0, 0, 0.815);
   width: 100%;
+  height: 100px;
   z-index: 1;
 }
 
-.logoContainer{
+.navBarAnimation {
+  animation: scale-down-ver-top 0.4s linear both;
+}
+
+
+@keyframes scale-down-ver-top {
+  0% {
+    height: 100px;
+  }
+
+  100% {
+    height: 50px;
+  }
+}
+
+.toggle-menu{
+  display: none;
+}
+.toggle-menu > img{
+  max-width: 100%;
+}
+
+.logoContainer {
   height: 100px;
   width: 100px;
   border: 1px solid #D49B41;
   border-radius: 48%;
-
 }
 
-.logo{
+.logoContainerAnimation {
+  animation: scale-down-logo 0.4s linear both;
+}
+
+@keyframes scale-down-logo {
+  0% {
+    height: 100px;
+    width: 100px;
+  }
+
+  100% {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.logo {
   width: 100%;
   border-radius: 50%;
-
 }
 
-.listContainer{
+.listContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0 60px;
 }
 
-.listItem{
+.listItem {
   list-style: none;
   font-size: 2rem;
   color: #D49B41;
   cursor: pointer;
-  font-family: 'Rusty Fever_Bold_DEMO' , sans-serif;
+  font-family: 'Rusty Fever_Bold_DEMO', sans-serif;
 }
 
-.listItem:hover{
+.listItem:hover {
   animation: shadow-drop-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
 @keyframes shadow-drop-bottom {
   0% {
     -webkit-box-shadow: 0 0 0 0 #D49B41;
-            box-shadow: 0 0 0 0 #D49B41;
+    box-shadow: 0 0 0 0 #D49B41;
   }
+
   100% {
     -webkit-box-shadow: 0 12px 20px -12px #D49B41;
-            box-shadow: 0 12px 20px -12px #D49B41;
+    box-shadow: 0 12px 20px -12px #D49B41;
   }
 }
 
-.cartContainer{
+
+@media screen and (max-width: 480px) {
+  .toggle-menu{
+    width: 40px;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    display: block;
+  }
+  .toggle-menu > img{
+    max-width: 100%;
+  }
+
+  .navBar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    z-index: 1;
+  }
+
+  .logoContainer{
+    height: 50px;
+    width: 50px;
+    align-self: flex-start;
+  }
+
+  .listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0 60px;
+    order: 1;
+  }
+}
+
+
+/* CART */
+
+.cartContainer {
   position: relative;
 }
 
-.cartIcon{
+.cartIcon {
   width: 2.5rem;
-  
+
 }
 
-.cartCount{
+.cartCount {
   height: 20px;
-  width: 20px;  
+  width: 20px;
   position: absolute;
   z-index: 1;
   background-color: #5999b2;
@@ -98,23 +185,87 @@ body{
   transform: translateX(30px) translateY(-10px);
 }
 
-.itemListContainer{
-  text-align: center;
-  font-size: 2.3rem;
+@media screen and (max-width: 480px) {
+  .cartContainer{
+    justify-self: flex-start;
+  }
+  .cartIcon{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* HERO */
+
+.itemListContainer {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.itemListContainer>h1 {
+  font-size: 5rem;
   font-family: 'BeeRidgeVintageBold', sans-serif;
   color: #D49B41;
   padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  animation: slide-bottom 1s linear both
 }
 
-.InfoRow{
+.itemListContainer>h1>span {
+  font-size: 1.3rem;
+  font-family: 'BeeRidgeVintageBold', 'GT Pressura Mono';
+  background-color: #444444;
+  color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+  animation: slide-bottom 1s linear 1s both
+}
+
+@keyframes slide-bottom {
+  0% {
+    opacity: 0%;
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 100%;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .itemListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-top: 150px;
+  }
+
+  .itemListContainer>h1>span {
+    margin: 0 10px;
+  }
+}
+
+/* INFO ROW */
+
+.InfoRow {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(15rem , 1fr));
   gap: 15px;
   background-color: #444;
-  padding:  20px 0;
+  padding: 20px 0;
 }
 
-.infoCard{
+/* INFO CARD */
+
+.infoCard {
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -123,46 +274,287 @@ body{
   gap: 10px;
 }
 
-.infoCard:hover{
+.infoCard:hover {
   background-color: #555;
   transition: all 1s;
 }
 
-.infoCardIcon{
+.infoCardIcon {
   width: 35px;
   height: 35px;
 }
 
-.infoCardIcon > img{
+.infoCardIcon>img {
   width: 100%;
 }
 
-.infoCardTitle{
+.infoCardTitle {
   font-weight: 600;
   font-family: 'GT Pressura Mono';
   color: #eee;
 }
 
-.infoCardText{
+.infoCardText {
   width: 60%;
   font-family: 'GT Pressura Mono';
   text-align: center;
   color: #eee;
 }
 
-.products{
+/* FEATURED PRODUCTS */
+
+.FeaturedProducts {
   color: #eee;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-h2{
-  color: #eee;
+.featuredProductsTitle {
+  color: #D49B41;
+  font-size: 3rem;
+  font-family: 'Rusty Fever_Bold_DEMO';
+  margin: 20px 0;
+  text-align: center;
 }
-.featuredProductsFilter{
-  color: white;
+
+.featuredProductsFilter {
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
 }
-.featuredProductsFilter > button{
+
+.featuredProductsFilter>button {
   padding: 10px;
   margin: 0 10px;
-  background-color: blue;
+  transform: translateY(-70px);
+  right: 0;
+}
+
+/* PRODUCT CARD */
+
+.productCard {
+  width: 320px;
+  height: 450px;
+  background-color: #2D3748;
+  margin: 20px 20px;
+  border-radius: 10px;
+}
+
+.productCard-img {
+  height: 70%;
+  background-color: #2D3748;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.productCard-img>img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.productCard-text {
+  color: #D49B41;
+  font-family: 'GT Pressura Mono';
+  position: relative;
+}
+
+.productCard-text>h2 {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.tags {
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  margin: 0 16px 8px 0;
+  padding: 0 10px 0 12px;
+  background: rgb(224, 3, 3);
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 12px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.tags::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 0;
+  height: 0;
+  border-color: transparent rgb(224, 3, 3) transparent transparent;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+}
+
+.tags::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 1px;
+  float: left;
+  width: 5px;
+  height: 5px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* BANNER */
+
+.banner{
+  background-image: url(https://images.unsplash.com/photo-1572452571879-3d67d5b2a39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmlrZXJ8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 17rem;
+  margin: 50px 0;
+  font-family: 'GT Pressura Mono';
+}
+.banner > h2{
+  color: azure;
+  text-align: center;
+  padding-top: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.banner > p{
+  color: azure;
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width : 480px){
+  .banner{
+    background-position: right 15% bottom 45%;
+    height: 30rem;
+  }
+}
+
+/* ABOUT */
+
+.about{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f3a529;
+  border-radius: 10px;
+  width: 70%;
+  padding: 20px;
+  margin: auto;
+}
+
+
+.about > img{
+  min-height: 100px;
+  max-width: 100px;
+}
+
+.aboutText{
+  min-height: 200px;
+  width: 100%;
+  margin: auto;
+}
+
+.aboutText h2{
+  color: #f3a529;
+  text-align: center;
+  padding: 40px;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width : 480px) {
+  .about{
+    width: 95%;
+    padding: 20px 0;
+  }
+}
+
+
+/* FOOTER */
+.footer{
+  background-color: black;
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  color: azure;
+  font-family: 'GT Pressura Mono';
+  font-size: 1rem;
+  padding: 20px 0;
+}
+
+.footerRedes , .footerContacto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerRedes > h4{
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 10px;
+}
+
+.footerRedes > a{
+  text-decoration: none;
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+}
+
+.footerRedes > img{
+  height: 50px;
+  width: 50px;
+}
+
+.footerLogo{
+  max-height: 180px;
+  max-width: 180px;
+  border: 1px solid azure;
+  border-radius: 50%;
+  justify-self: center;
+}
+
+.footerLogo > img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.footerContacto > h4{
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 10px;
+}
+.footerContacto > p{
+  padding: 10px 15px;
+}
+
+@media screen and (max-width: 480px) {
+  .footerLogo{
+    order: -1;
+  }
 }
