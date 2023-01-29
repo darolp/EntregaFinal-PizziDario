@@ -1,13 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import logo from '../images/logo.jpg'
 import CartWidget from './CartWidget'
 import menu from '../images/menu.svg'
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from '@chakra-ui/react'
 
 
 function NavBar() {
@@ -30,20 +24,27 @@ function NavBar() {
     }
   }, [])
 
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <>
       <nav className='navBar' ref={navarRef}>
-        <a href='#inicio' className='logoContainer' ref={logoContainerRef}>
-          <img src={logo} alt='logo' className='logo' />
-        </a>
-        <ul className='listContainer'>
+        <div className='buttonsContainer'>
+          <a href='#inicio' className='logoContainer' ref={logoContainerRef}>
+            <img src={logo} alt='logo' className='logo' />
+          </a>
+          <div>
+            <CartWidget />
+          </div>
+          <div className='toggle-menu' onClick={() => setShowMenu(!showMenu)}>
+            <img src={menu}/>
+          </div>
+        </div>
+        <ul className={`listContainer ${showMenu ? '' : 'hide'}`}>
           <li className='listItem'>INICIO</li>
           <li className='listItem'>PRODUCTOS</li>
           <li className='listItem'>CONTACTO</li>
         </ul>
-        <div>
-          <CartWidget />
-        </div>
       </nav>
     </>
   )

@@ -30,17 +30,105 @@ body {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 15px 0;
   background-color: rgba(0, 0, 0, 0.815);
   width: 100%;
-  height: 100px;
   z-index: 1;
 }
 
-.navBarAnimation {
-  animation: scale-down-ver-top 0.4s linear both;
+.buttonsContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  
+}
+
+
+.toggle-menu{
+  width: 50px;
+  height: 50px;
+}
+
+
+.toggle-menu > img{
+  width: 100%;
+}
+
+.logoContainer {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #D49B41;
+  border-radius: 48%;
+  display: inline-block;
+}
+
+.logo {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  transition: all 0.3s;
+}
+
+.hide{
+  display: none;
+}
+
+.listItem {
+  list-style: none;
+  font-size: 2rem;
+  padding: 1rem;
+  color: #D49B41;
+  cursor: pointer;
+  font-family: 'Rusty Fever_Bold_DEMO', sans-serif;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .navBarAnimation {
+    animation: scale-down-ver-top 0.4s linear both;
+  }
+
+  .toggle-menu{
+    display: none;
+  }
+
+  .listContainer{
+    flex-direction: row;
+    position: absolute;
+  }
+
+
+  .logoContainer {
+    height: 100px;
+    width: 100px;
+    margin-left: 20px;
+  }
+  .logoContainerAnimation {
+    animation: scale-down-logo 0.4s linear both;
+  } 
+
+  .hide{
+    display: flex;
+  }
+
+  .cartContainer{
+    margin-right: 20px;
+    
+  }
 }
 
 
@@ -50,27 +138,10 @@ body {
   }
 
   100% {
-    height: 50px;
+    height: 60px;
   }
 }
 
-.toggle-menu{
-  display: none;
-}
-.toggle-menu > img{
-  max-width: 100%;
-}
-
-.logoContainer {
-  height: 100px;
-  width: 100px;
-  border: 1px solid #D49B41;
-  border-radius: 48%;
-}
-
-.logoContainerAnimation {
-  animation: scale-down-logo 0.4s linear both;
-}
 
 @keyframes scale-down-logo {
   0% {
@@ -83,81 +154,6 @@ body {
     width: 50px;
   }
 }
-
-.logo {
-  width: 100%;
-  border-radius: 50%;
-}
-
-.listContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0 60px;
-}
-
-.listItem {
-  list-style: none;
-  font-size: 2rem;
-  color: #D49B41;
-  cursor: pointer;
-  font-family: 'Rusty Fever_Bold_DEMO', sans-serif;
-}
-
-.listItem:hover {
-  animation: shadow-drop-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-@keyframes shadow-drop-bottom {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 #D49B41;
-    box-shadow: 0 0 0 0 #D49B41;
-  }
-
-  100% {
-    -webkit-box-shadow: 0 12px 20px -12px #D49B41;
-    box-shadow: 0 12px 20px -12px #D49B41;
-  }
-}
-
-
-@media screen and (max-width: 480px) {
-  .toggle-menu{
-    width: 40px;
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    display: block;
-  }
-  .toggle-menu > img{
-    max-width: 100%;
-  }
-
-  .navBar {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    z-index: 1;
-  }
-
-  .logoContainer{
-    height: 50px;
-    width: 50px;
-    align-self: flex-start;
-  }
-
-  .listContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0 60px;
-    order: 1;
-  }
-}
-
 
 /* CART */
 
@@ -532,7 +528,7 @@ body {
 .footerLogo{
   max-height: 180px;
   max-width: 180px;
-  border: 1px solid azure;
+  border: 1px solid #D49B41;
   border-radius: 50%;
   justify-self: center;
 }
