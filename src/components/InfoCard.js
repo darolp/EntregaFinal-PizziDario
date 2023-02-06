@@ -6,7 +6,7 @@ function InfoCard(props) {
     <>
     <div className='infoCard'>
       <div className='infoCardIcon'>
-        <img src={icon}/>
+        <img src={icon} alt='icon'/>
       </div>
       <div className='infoCardTitle'>
         <h3>{title}</h3>

@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Banner({title , text}) {
+function Banner() {
   return (
     <div className='banner'>
-      <h2>{title}</h2>
-      <p>{text}</p>
+      <h2>Sentite libre</h2>
+      <p>Ropa diseñada para la aventura</p>
     </div>
   )
 }

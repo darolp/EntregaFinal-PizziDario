@@ -13,7 +13,7 @@ function Footer() {
         <a target='_blank' href='https://facebook.com'><img src={facebook} alt='redes' />Facebook</a> 
       </div>
       <div className='footerLogo'>
-        <img src={logo} />
+        <img src={logo} alt='logo'/>
       </div>
       <div className='footerContacto'>
         <h4>Contactanos:</h4>

@@ -1,17 +1,36 @@
 import React from 'react'
-import { Image , Box } from '@chakra-ui/react'
+import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import data from '../data/data.json'
+import Loading from './Loading';
+import ItemList from './ItemList';
 
-function ItemListContainer({slogan}) {
+function ItemListContainer() {
+  const {category} = useParams()
+  const [productList, setProductList] = useState([]);
+  useEffect(() => {
+    const promise = new Promise((resolve) => {
+      setTimeout(()=>{
+        resolve(category ? data.filter(e => e.category === category) : data)
+      }, 500);
+    });
+    promise.then((products) => {
+      setProductList(products);
+    })
+  }, [category]);
+
   return (
     <>
-    <Box 
-      bgImage="https://cdn.pixabay.com/photo/2018/08/29/03/57/man-3639100_960_720.jpg"
-      w='100%' h='calc(100vh - 130px)' bgPosition="center" bgRepeat="no-repeat" bgSize='cover' >
-      <div className='itemListContainer'>
-        <h1> OXIDO <span>- {slogan} -</span></h1>
-      </div>
-    </Box>
-      
+    <div className='productsFilter'>
+        <Link to={'/products'}>Todo</Link>
+        <Link to={'/products/remera'}>Remeras</Link>
+        <Link to={'/products/campera'}>Camperas</Link>
+        <Link to={'/products/buzo'}>Buzos</Link>
+    </div>
+    
+    <div className='productsList'>
+      {(productList.length === 0) ?  <Loading/> : <ItemList products={productList}/>}
+    </div>
       
     </>
   )
