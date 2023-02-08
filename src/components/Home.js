@@ -9,11 +9,11 @@ function Home() {
   
   return (
     <>
-        <Hero  />
-        <InfoRow />
-        <FeaturedProducts products={featuredProducts} /> 
-        <Banner />
-        <About />
+      <Hero  />
+      <InfoRow />
+      <FeaturedProducts products={featuredProducts} /> 
+      <Banner />
+      <About />
     </>
   )
 }

@@ -1,8 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-function ProductCard({ id, img, title, description, price, category }) {
+function ProductCard({ id, img, title, price, stock }) {
   const [amount, setAmount] = useState(1);
+  const [size, setSize] = useState("");
+
+  const addCart = () => {
+
+  }
   return (
     <div className='productCard' >
       <div className='productCard-img'>
@@ -10,17 +15,17 @@ function ProductCard({ id, img, title, description, price, category }) {
       </div>
       <div className='productCard-text'>
         <h2>{title}</h2>
-        <span className='tags'>{category}</span>
+        <span className='tags'>${price}</span>
       </div>
       <div className='productCard-buttons'>
         <div>
-          <select className='productCard-buttons-select'>
+          <select className='productCard-buttons-select' onChange={(e) => setSize(e.target.value)}>
             <option selected>Talle</option>
-            <option value={'xs'}>XS</option>
-            <option value={'s'}>S</option>
-            <option value={'m'}>M</option>
-            <option value={'l'}>L</option>
-            <option value={'xl'}>XL</option>
+            <option value={'xs'} disabled={stock.xs === 0 ? true : false}>XS</option>
+            <option value={'s'} disabled={stock.s === 0 ? true : false}>S</option>
+            <option value={'m'} disabled={stock.m === 0 ? true : false}>M</option>
+            <option value={'l'} disabled={stock.l === 0 ? true : false}>L</option>
+            <option value={'xl'} disabled={stock.xl === 0 ? true : false}>XL</option>
           </select>
           <div className='productCard-buttons-amount'>
             <label>Cantidad: </label>
@@ -31,7 +36,7 @@ function ProductCard({ id, img, title, description, price, category }) {
         </div>
         <div>
           <Link className='productCard-buttons-detail' to={`/product/${id}`}>Ver detalle</Link>
-          <button className='productCard-buttons-addCart'>Agregar al carrito</button>
+          <button className='productCard-buttons-addCart' onClick={addCart}>Agregar al carrito</button>
         </div>
       </div>
     </div>

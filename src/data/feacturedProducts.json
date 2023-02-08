@@ -9,8 +9,8 @@
     "stock" : {
       "xs": 1,
       "s" : 0,
-      "M" : 0,
-      "L" : 0,
+      "m" : 0,
+      "l" : 0,
       "xl": 2
     }
     
@@ -21,7 +21,14 @@
     "title": "Buzo Dragon ball",
     "description": "100% algodon",
     "category": "buzo",
-    "price": "2500"
+    "price": "2500",
+    "stock" : {
+      "xs": 1,
+      "s" : 0,
+      "m" : 0,
+      "l" : 0,
+      "xl": 2
+    }
   },
   {
     "id": 3,
@@ -29,7 +36,14 @@
     "title": "Campera Anti viento",
     "description": "ideal para andar en moto",
     "category": "campera",
-    "price": "5000"
+    "price": "5000",
+    "stock" : {
+      "xs": 1,
+      "s" : 0,
+      "m" : 0,
+      "l" : 0,
+      "xl": 2
+    }
   },
   {
     "id": 4,
@@ -37,6 +51,13 @@
     "title": "Campera de cuero",
     "description": "100% de cuero maxima calidad",
     "category": "campera",
-    "price": "6000"
+    "price": "6000",
+    "stock" : {
+      "xs": 1,
+      "s" : 0,
+      "m" : 0,
+      "l" : 0,
+      "xl": 2
+    }
   }
 ]
