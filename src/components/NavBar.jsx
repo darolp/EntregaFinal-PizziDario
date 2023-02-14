@@ -11,7 +11,7 @@ function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 1) {
+      if (window.scrollY > 150 ) {
         navBarRef.current.className = 'navBar navBarAnimation'
         logoContainerRef.current.className = 'logoContainer logoContainerAnimation'
       } else {
@@ -35,7 +35,9 @@ function NavBar() {
             <img src={logo} alt='logo' className='logo' />
           </NavLink>
           <div>
+          <NavLink to='/cart'>
             <CartWidget />
+          </NavLink>
           </div>
           <div className='toggle-menu' onClick={() => setShowMenu(!showMenu)}>
             <img src={menu} alt='menu'/>
