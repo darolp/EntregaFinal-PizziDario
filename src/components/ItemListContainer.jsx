@@ -10,10 +10,9 @@ function ItemListContainer() {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-
     if (category) {
       productService.getAll().then(response => {
-        const productsFilter = response.filter(e => e.category == category)
+        const productsFilter = response.filter(e => e.category === category)
         setProductList(productsFilter);
       })
     } else {
@@ -21,9 +20,10 @@ function ItemListContainer() {
     }
   }, [category]);
 
-
   return (
     <>
+      <h1 className='title'>PRODUCTOS</h1>
+      
       <div className='productsFilter'>
         <Link to={'/products'}>Todo</Link>
         <Link to={'/products/remera'}>Remeras</Link>

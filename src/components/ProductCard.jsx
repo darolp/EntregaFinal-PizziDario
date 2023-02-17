@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { context } from '../context/Context';
 
@@ -9,22 +9,39 @@ function ProductCard({ id, img, title, price, stock }) {
 
   const [amount, setAmount] = useState(1);
   const [size, setSize] = useState("");
-  const {updateCartList} = useContext(context);
+  const [maxQty, setMaxQty] = useState(0);
+  const { updateCartList, cartList } = useContext(context);
+
+
+  useEffect(() => {
+    setMaxQty(stock[size])
+  }, [size]);
 
   const addCart = () => {
-    if(size){
-      const newProduct = {
-        id: Math.random() * 10000,
-        idProducto: id,
-        img: img,
-        amount: amount,
-        size: size,
-        title: title,
-        price: price
+
+    // obtener el producto en caso de que exista en el carrito.
+    // Ver cuantos productos hay agregados para el size acutal
+    // chequear que el stock permitido para ese size.
+    // y si la suma no excede, del stock máximo, permitir agregar.
+    if (size) {
+      const product = cartList.find(elem => elem.idProducto === id && elem.size === size)
+      if(product && product.amount + amount <= stock[size]) {
+        
+      } else {
+        const newItem = {
+          id: Math.random() * 10000,
+          idProducto: id,
+          img: img,
+          amount: amount,
+          size: size,
+          title: title,
+          price: price
+        }
+        updateCartList(newItem)
       }
-      updateCartList(newProduct)
     }
   }
+
   return (
     <div className='productCard' >
       <div className='productCard-img'>
@@ -47,8 +64,8 @@ function ProductCard({ id, img, title, price, stock }) {
           <div className='productCard-buttons-amount'>
             <label>Cantidad: </label>
             <button onClick={() => setAmount(amount > 1 ? amount - 1 : 1)}>-</button>
-            <input type='number' value={amount} readOnly/>
-            <button onClick={() => setAmount(amount + 1)}>+</button>
+            <input type='number' value={amount} readOnly />
+            <button onClick={() => setAmount( state=> state < maxQty ? state + 1 : maxQty)}>+</button>
           </div>
         </div>
         <div>

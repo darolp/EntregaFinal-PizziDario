@@ -7,7 +7,8 @@ const ContextProvider = ({children}) => {
   const [cartList, setCartList] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
   const updateCartList = (value) => {
-    setCartList((prevState) => [...prevState, value])
+    // setCartList((prevState) => [...prevState, value])
+    setCartList(value)
   };
 
   const removeCartItem = (itemId) => {
