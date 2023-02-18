@@ -1,14 +1,15 @@
-import {createContext, useState, useEffect} from 'react'
+import { createContext, useState, useEffect } from "react";
 
-const context = createContext({})
+const context = createContext({});
 
-
-const ContextProvider = ({children}) => {
-  const [cartList, setCartList] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+const ContextProvider = ({ children }) => {
+  const [cartList, setCartList] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   const updateCartList = (value) => {
-    // setCartList((prevState) => [...prevState, value])
-    setCartList(value)
+    // setCartList((prevState) => [...prevState, value]);
+    setCartList(value);
   };
 
   const removeCartItem = (itemId) => {
@@ -18,19 +19,19 @@ const ContextProvider = ({children}) => {
 
   const cleanCart = () => {
     setCartList([]);
-  }
+  };
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartList));
+    localStorage.setItem("cart", JSON.stringify(cartList));
   }, [cartList]);
 
-
-  
-  return(
-    <context.Provider value={{cartList, updateCartList, removeCartItem, cleanCart}}>
+  return (
+    <context.Provider
+      value={{ cartList, updateCartList, removeCartItem, cleanCart }}
+    >
       {children}
     </context.Provider>
-  )
-}
+  );
+};
 
-export {ContextProvider , context}
+export { ContextProvider, context };
