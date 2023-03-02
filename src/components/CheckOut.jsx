@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-function Thanks() {
+function CheckOut() {
   const {id} = useParams()
   return (
     <>
@@ -9,4 +9,4 @@ function Thanks() {
   )
 }
 
-export default Thanks
+export default CheckOut

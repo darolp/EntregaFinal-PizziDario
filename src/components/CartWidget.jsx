@@ -4,12 +4,12 @@ import { useContext } from 'react';
 import { context } from '../context/Context';
 
 function CartWidget() {
-  const {cartList} = useContext(context);
+  const {totalItems} = useContext(context);
   return (
     <>
       <div className='cartWidget'>
         <img src={cart} alt='cart' className='cartWidgetIcon'/>
-        <span className='cartWidgetCount'>{cartList.length}</span>
+        <span className='cartWidgetCount'>{totalItems}</span>
       </div>
     </>
   )

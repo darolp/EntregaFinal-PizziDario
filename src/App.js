@@ -9,7 +9,7 @@ import Contact from './components/Contact'
 import Home from './components/Home'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Cart from './components/Cart'
-import Thanks from './components/Thanks'
+import CheckOut from './components/CheckOut'
 
 function App() {
 
@@ -25,7 +25,7 @@ function App() {
             <Route path='/product/:id' element={<ItemDetailContainer />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/cart' element={<Cart/>}/>
-            <Route path='/thanks/:id' element={<Thanks/>}/>
+            <Route path='/checkOut/:id' element={<CheckOut/>}/>
           </Routes>
           <Footer />
         </ContextProvider>

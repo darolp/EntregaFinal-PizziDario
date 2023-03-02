@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { context } from "../context/Context";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ItemQuantitySelector from "./ItemQuantitySelector";
+import AddItemButton from "./AddItemButton";
 
 function ProductCard({ id, img, title, price, stock }) {
   const [amount, setAmount] = useState(1);
@@ -89,58 +91,12 @@ function ProductCard({ id, img, title, price, stock }) {
           <span className="tags">$ {price}</span>
         </div>
         <div className="productCard-buttons">
-          <div>
-            <select
-              className="productCard-buttons-select"
-              required
-              onChange={(e) => handleSize(e.target.value)}
-              value={size}
-            >
-              <option disabled value={""}>
-                Talles
-              </option>
-              <option value={"xs"} disabled={stock.xs === 0 ? true : false} className="stock">
-                XS ({stock.xs})
-              </option>
-              <option value={"s"} disabled={stock.s === 0 ? true : false}>
-                S ({stock.s})
-              </option>
-              <option value={"m"} disabled={stock.m === 0 ? true : false}>
-                M ({stock.m})
-              </option>
-              <option value={"l"} disabled={stock.l === 0 ? true : false}>
-                L ({stock.l})
-              </option>
-              <option value={"xl"} disabled={stock.xl === 0 ? true : false}>
-                XL ({stock.xl})
-              </option>
-            </select>
-            <div className="productCard-buttons-amount">
-              <label>Cantidad: </label>
-              <button onClick={() => setAmount(amount > 1 ? amount - 1 : 1)}>
-                -
-              </button>
-              <input type="number" value={amount} readOnly />
-              <button
-                onClick={() =>
-                  setAmount((state) => (state < stock[size] ? state + 1 : stock[size]))
-                }
-              >
-                +
-              </button>
-            </div>
-          </div>
+          <ItemQuantitySelector handleSize={handleSize} size={size} stock={stock} setAmount={setAmount} amount={amount} />
           <div>
             <Link className="productCard-buttons-detail" to={`/product/${id}`}>
               Ver detalle
             </Link>
-            <button
-              className="productCard-buttons-addCart"
-              onClick={addCart}
-              disabled={!size}
-            >
-              {size ? "Agregar al carrito" : "Seleccionar talle"}
-            </button>
+            <AddItemButton addCart={addCart} size={size} />
           </div>
         </div>
       </div>

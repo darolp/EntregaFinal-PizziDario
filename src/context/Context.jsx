@@ -6,9 +6,9 @@ const ContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
+  const [totalItems, setTotalItems] = useState(0);
 
   const updateCartList = (value) => {
-    // setCartList((prevState) => [...prevState, value]);
     setCartList(value);
   };
 
@@ -21,13 +21,22 @@ const ContextProvider = ({ children }) => {
     setCartList([]);
   };
 
+
+  useEffect(() => {
+    let newTotal = 0;
+    cartList.forEach((item) => {
+      newTotal += item.amount;
+    });
+    setTotalItems(newTotal);
+  }, [cartList]);
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartList));
   }, [cartList]);
-
+  
   return (
     <context.Provider
-      value={{ cartList, updateCartList, removeCartItem, cleanCart }}
+      value={{ cartList, updateCartList, removeCartItem, cleanCart, totalItems }}
     >
       {children}
     </context.Provider>
