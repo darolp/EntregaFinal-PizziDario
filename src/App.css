@@ -747,6 +747,21 @@ body {
   background-color: #333;
 }
 
+/* Contact */
+
+.contactContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.contactForm{
+  width: 600px;
+  background-color: #eee;
+  padding: 30px;
+}
+
 /* FOOTER */
 .footer{
   background-color: black;
