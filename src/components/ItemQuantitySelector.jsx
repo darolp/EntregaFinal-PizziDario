@@ -2,7 +2,7 @@ import React from 'react'
 
 function ItemQuantitySelector({handleSize, size, stock, setAmount, amount}) {
   return (
-    <div>
+    <>
       <select
         className="productCard-buttons-select"
         required
@@ -42,7 +42,7 @@ function ItemQuantitySelector({handleSize, size, stock, setAmount, amount}) {
           +
         </button>
       </div>
-    </div>
+    </>
   )
 }
 

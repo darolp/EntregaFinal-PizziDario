@@ -91,7 +91,9 @@ function ProductCard({ id, img, title, price, stock }) {
           <span className="tags">$ {price}</span>
         </div>
         <div className="productCard-buttons">
-          <ItemQuantitySelector handleSize={handleSize} size={size} stock={stock} setAmount={setAmount} amount={amount} />
+          <div>
+            <ItemQuantitySelector handleSize={handleSize} size={size} stock={stock} setAmount={setAmount} amount={amount} />
+          </div>
           <div>
             <Link className="productCard-buttons-detail" to={`/product/${id}`}>
               Ver detalle

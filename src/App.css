@@ -591,13 +591,15 @@ body {
   color: white;
 }
 
-.itemDetailTextButtons-buyNow{
-  padding: 5px;
-  border-radius: 20px;
-  border: 1px solid green;
-  background-color: rgb(37, 90, 43);
-  margin: 10px 10px;
-  color: white;
+.itemDetail-buttons{
+  display: flex;
+}
+.itemDetail-buttons option{
+  background-color: rgba(0, 0, 0, 0.355);
+}
+
+.itemDetail-buttons input{
+  background-color: rgba(0, 0, 0, 0.355);
 }
 
 .itemDetailTextButtons-addCart{

@@ -88,7 +88,7 @@ function ItemDetail({ product }) {
           <div>{description}</div>
           <div>Precio: ${price}</div>
         </div>
-        <div>
+        <div className="itemDetail-buttons">
           <ItemQuantitySelector handleSize={handleSize} size={size} stock={stock} setAmount={setAmount} amount={amount} />
         </div>
         <div className='itemDetailTextButtons'>
