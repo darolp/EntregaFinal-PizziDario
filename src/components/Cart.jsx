@@ -19,7 +19,7 @@ function Cart() {
 
   const handlePay = () => {
     setShowModal(true);
-  }                                     
+  }
 
   const handleBuyerInfoChange = (event) => {
     setBuyerInfo({
@@ -41,12 +41,12 @@ function Cart() {
       state: "Generada",
       total: total
     };
-    
+
     const order = await productService.newOrder(purchaseData)
     navigate(`/checkOut/${order.id}`);
     cleanCart();
   }
-  
+
 
   useEffect(() => {
     let newTotal = 0;
@@ -60,16 +60,16 @@ function Cart() {
     <>
       <div className='cartContainer'>
         {cartList.length > 0
-          ? cartList.map(e => <CartItem key={e.id} id={e.id} img={e.img} amount={e.amount} size={e.size} title={e.title} price={e.price} removeCartItem={removeCartItem} />)
+          ? cartList.map(e => <CartcItem key={e.id} id={e.id} img={e.img} amount={e.amount} size={e.size} title={e.title} price={e.price} removeCartItem={removeCartItem} />)
           : 'Aun no agregado ningun producto al carrito'}
         <div className='cartInfo'>
-        <p>Total a pagar: ${total}</p>
-        <p>Cantidad de productos: {totalItems}</p>
+          <p>Total a pagar: ${total}</p>
+          <p>Cantidad de productos: {totalItems}</p>
         </div>
         <button className='cartBtn' onClick={handlePay}>Pagar</button>
       </div>
 
-      {showModal && <Modal setShowModal={setShowModal} handleCompletePurchase={handleCompletePurchase} handleBuyerInfoChange={handleBuyerInfoChange} buyerInfo={buyerInfo}/>}
+      {showModal && <Modal setShowModal={setShowModal} handleCompletePurchase={handleCompletePurchase} handleBuyerInfoChange={handleBuyerInfoChange} buyerInfo={buyerInfo} />}
 
     </>
   )

@@ -22,7 +22,7 @@ function Contact() {
     <div className='contactContainer'>
       <div className='contactForm'>
         <FormControl isRequired>
-          <FormLabel>nombre</FormLabel>
+          <FormLabel>Nombre</FormLabel>
           <Input type='text' value={contactInfo.name} name="name" onChange={handleInputChange} />
         </FormControl>
         <FormControl isRequired>

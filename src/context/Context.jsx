@@ -3,9 +3,11 @@ import { createContext, useState, useEffect } from "react";
 const context = createContext({});
 
 const ContextProvider = ({ children }) => {
+
   const [cartList, setCartList] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
+
   const [totalItems, setTotalItems] = useState(0);
 
   const updateCartList = (value) => {
