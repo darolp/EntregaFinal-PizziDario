@@ -60,7 +60,7 @@ function Cart() {
     <>
       <div className='cartContainer'>
         {cartList.length > 0
-          ? cartList.map(e => <CartcItem key={e.id} id={e.id} img={e.img} amount={e.amount} size={e.size} title={e.title} price={e.price} removeCartItem={removeCartItem} />)
+          ? cartList.map(e => <CartItem key={e.id} id={e.id} img={e.img} amount={e.amount} size={e.size} title={e.title} price={e.price} removeCartItem={removeCartItem} />)
           : 'Aun no agregado ningun producto al carrito'}
         <div className='cartInfo'>
           <p>Total a pagar: ${total}</p>
