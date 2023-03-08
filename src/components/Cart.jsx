@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from './Modal';
 function Cart() {
 
-  const { cartList, removeCartItem, cleanCart } = useContext(context);
+  const { cartList, removeCartItem, cleanCart, totalItems } = useContext(context);
   const navigate = useNavigate();
   const [total, setTotal] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -62,8 +62,11 @@ function Cart() {
         {cartList.length > 0
           ? cartList.map(e => <CartItem key={e.id} id={e.id} img={e.img} amount={e.amount} size={e.size} title={e.title} price={e.price} removeCartItem={removeCartItem} />)
           : 'Aun no agregado ningun producto al carrito'}
-        <div>Total a pagar: ${total}</div>
-        <button onClick={handlePay}>Pagar</button>
+        <div className='cartInfo'>
+        <p>Total a pagar: ${total}</p>
+        <p>Cantidad de productos: {totalItems}</p>
+        </div>
+        <button className='cartBtn' onClick={handlePay}>Pagar</button>
       </div>
 
       {showModal && <Modal setShowModal={setShowModal} handleCompletePurchase={handleCompletePurchase} handleBuyerInfoChange={handleBuyerInfoChange} buyerInfo={buyerInfo}/>}
