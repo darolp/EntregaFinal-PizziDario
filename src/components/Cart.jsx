@@ -74,7 +74,7 @@ function Cart() {
           <p>Total a pagar: ${total}</p>
           <p>Cantidad de productos: {totalItems}</p>
         </div>
-        <button className='cartBtn' onClick={handlePay}>Pagar</button>
+        <button disabled={cartList.length === 0} className='cartBtn' onClick={handlePay}>Pagar</button>
       </div>
 
       {showModal && <Modal setShowModal={setShowModal} handleCompletePurchase={handleCompletePurchase} handleBuyerInfoChange={handleBuyerInfoChange} buyerInfo={buyerInfo} handleCheckEmail={handleCheckEmail} validMail={validMail} />}
