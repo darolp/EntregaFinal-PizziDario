@@ -7,15 +7,23 @@ import Modal from './Modal';
 function Cart() {
 
   const { cartList, removeCartItem, cleanCart, totalItems } = useContext(context);
+
   const navigate = useNavigate();
+
   const [total, setTotal] = useState(0);
+
   const [showModal, setShowModal] = useState(false);
+
   const [buyerInfo, setBuyerInfo] = useState({
     name: '',
     phone: '',
     email: '',
     address: ''
   });
+
+  const [validMail, setValidMail] = useState(true);
+
+  const handleCheckEmail = (e) => setValidMail(e.target.value === buyerInfo.email);
 
   const handlePay = () => {
     setShowModal(true);
@@ -69,7 +77,7 @@ function Cart() {
         <button className='cartBtn' onClick={handlePay}>Pagar</button>
       </div>
 
-      {showModal && <Modal setShowModal={setShowModal} handleCompletePurchase={handleCompletePurchase} handleBuyerInfoChange={handleBuyerInfoChange} buyerInfo={buyerInfo} />}
+      {showModal && <Modal setShowModal={setShowModal} handleCompletePurchase={handleCompletePurchase} handleBuyerInfoChange={handleBuyerInfoChange} buyerInfo={buyerInfo} handleCheckEmail={handleCheckEmail} validMail={validMail} />}
 
     </>
   )

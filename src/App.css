@@ -752,6 +752,10 @@ body {
   width: 70%;
 }
 
+.invalid{
+  border-bottom: 2px solid red;
+}
+
 .modalButtonContainer {
   width: 100%;
   display: flex;
