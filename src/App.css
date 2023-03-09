@@ -805,6 +805,22 @@ body {
   border-radius: 20px;
 }
 
+/* CheckOut */
+
+.checkOutContainer{
+  text-align: center;
+  width: 80%;
+  max-width: 700px;
+  margin: 20px auto;
+  background-color: #666;
+  border-radius: 10px;
+  padding:  5px;
+}
+.checkOutContainer p{
+  font-size: 1.3rem;
+  color: #ccc;
+}
+
 /* FOOTER */
 .footer{
   background-color: black;

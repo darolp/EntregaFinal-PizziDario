@@ -4,7 +4,11 @@ function CheckOut() {
   const {id} = useParams()
   return (
     <>
-      <h2 className='title'>Gracias por su compra, su numero de orden es: {id}</h2>
+    <div className='checkOutContainer'>
+      <h2 className='title'>Gracias por su compra, su numero de orden es: </h2>
+      <h2 className='title'>{id}</h2>
+      <p>Lo vamos a estar contactando a la brevedad para informarle acerca del envio de sus productos</p>
+    </div>
     </>
   )
 }
