@@ -12,6 +12,8 @@ function Cart() {
 
   const [total, setTotal] = useState(0);
 
+  const [productList, setProductList] = useState([]);
+
   const [showModal, setShowModal] = useState(false);
 
   const [buyerInfo, setBuyerInfo] = useState({
@@ -24,6 +26,10 @@ function Cart() {
   const [validMail, setValidMail] = useState(true);
 
   const handleCheckEmail = (e) => setValidMail(e.target.value === buyerInfo.email);
+
+  useEffect(() => {
+    productService.getAll().then(resp => setProductList(resp))
+  }, []);
 
   const handlePay = () => {
     setShowModal(true);
@@ -49,6 +55,13 @@ function Cart() {
       state: "Generada",
       total: total
     };
+
+    //MANEJAR STOCK
+    cartList.forEach((elem) => {
+      const product = productList.find((item) => item.id === elem.idProducto)
+      const newAmount = product.stock[elem.size] - elem.amount;
+      productService.updeteStock(elem.idProducto, elem.size, newAmount)
+    })
 
     const order = await productService.newOrder(purchaseData)
     navigate(`/checkOut/${order.id}`);

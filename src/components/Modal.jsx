@@ -28,7 +28,7 @@ function Modal({ buyerInfo, handleBuyerInfoChange, handleCompletePurchase, setSh
           <input type='text' className='modalInput' name='address' value={buyerInfo.address} onChange={handleBuyerInfoChange} required />
         </form>
         <div className='modalButtonContainer'>
-          <button className='modalButton-buy' disabled={validMail} onClick={handleCompletePurchase}>Completar compra</button>
+          <button className='modalButton-buy'  onClick={handleCompletePurchase}>Completar compra</button>
           <button className='modalButton-back' onClick={() => setShowModal(false)}>Volver</button>
         </div>
       </div>

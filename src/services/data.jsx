@@ -1,4 +1,4 @@
-import { getFirestore, doc, getDoc, collection, getDocs, addDoc } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, collection, getDocs, addDoc, updateDoc } from 'firebase/firestore'
 
 
 
@@ -12,6 +12,14 @@ const getAll = async () => {
 
 
   return products
+}
+
+const updeteStock = async (id, size, newAmount) => {
+  const db = getFirestore();
+  const productDoc = doc(db, 'productos', id);
+  const updateObj = {};
+  updateObj[`stock.${size}`] = newAmount;
+  await updateDoc(productDoc, updateObj);
 }
 
 
@@ -35,4 +43,4 @@ const newOrder = (order) => {
 }
 
 
-export const productService = { getAll, get, newOrder }
+export const productService = { getAll, get, newOrder, updeteStock }
