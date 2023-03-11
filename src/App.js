@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ContextProvider } from './context/Context'
@@ -10,24 +10,25 @@ import Home from './components/Home'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Cart from './components/Cart'
 import CheckOut from './components/CheckOut'
-
+import Admin from './components/admin/Admin'
 function App() {
-
+  const [isAdminPage, setIsAdminPage] = useState(false);
   return (
     <>
       <BrowserRouter>
         <ContextProvider >
-          <NavBar />
+          <NavBar isAdminPage={isAdminPage} />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/products' element={<ItemListContainer />} />
             <Route path='/products/:category' element={<ItemListContainer />} />
             <Route path='/product/:id' element={<ItemDetailContainer />} />
             <Route path='/contact' element={<Contact />} />
-            <Route path='/cart' element={<Cart/>}/>
-            <Route path='/checkOut/:id' element={<CheckOut/>}/>
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/checkOut/:id' element={<CheckOut />} />
+            <Route path='/admin' element={<Admin setIsAdminPage={setIsAdminPage} />} />
           </Routes>
-          <Footer />
+          <Footer isAdminPage={isAdminPage} />
         </ContextProvider>
       </BrowserRouter>
     </>

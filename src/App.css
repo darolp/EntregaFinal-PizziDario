@@ -888,3 +888,70 @@ body {
     order: -1;
   }
 }
+
+/* ADMIN */
+
+.adminContainer{
+  display: grid;
+  grid-template: 
+  "navbar navbar" 80px
+  "sideBar content" calc(100vh - 80px) /
+    200px   auto;
+  gap: 10px;
+  background-color: white;
+}
+
+.adminMainBar{
+  grid-area: navbar;
+  background-color: #aaa;
+}
+
+.adminSideBar{
+  grid-area: sideBar;
+  background-color: #4557f5;
+  color: white;
+  padding: 25px;
+}
+.adminSideBar h2{
+  margin-left: -15px;
+  color: #ccc;
+  text-decoration: underline;
+}
+.adminSideBar ul{
+  list-style: none;
+  margin: 15px 0px;
+}
+.adminSideBar ul li{
+  margin: 15px 0px;
+}
+.adminSideBar .link{
+  margin: 15px 0px;
+  display: block;
+}
+
+.adminContent{
+  grid-area: content;
+  background-color: tomato;
+}
+
+@media screen and (max-width: 480px) {
+  .adminContainer{
+    grid-template: 
+    "navbar" 80px
+    "content" calc(100vh - 80px) /
+    100%;
+  }
+
+  .adminSideBar{
+    display: none;
+  }
+
+  .show{
+    display: block;
+    position: absolute;
+    background-color: #5a6bff;
+    margin-top: 80px;
+    width: 100vw;
+    text-align: center;
+  }
+}

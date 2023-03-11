@@ -12,7 +12,7 @@ function CartItem({id, img, title, price, amount, size, removeCartItem}) {
         </div>
         <div className='cartItemText'>
           <h2>{title}</h2>
-          <p>Precio: {price * amount}</p>
+          <p>Precio: {price}</p>
           <p>Cantidad: {amount}</p>
           <p>Tamaño: {size.toUpperCase()}</p>
         </div>

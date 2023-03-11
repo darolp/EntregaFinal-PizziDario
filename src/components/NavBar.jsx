@@ -5,7 +5,7 @@ import menu from '../images/menu.svg'
 import { NavLink } from 'react-router-dom'
 
 
-function NavBar() {
+function NavBar({isAdminPage}) {
   const navBarRef = useRef();
   const logoContainerRef = useRef();
 
@@ -28,6 +28,7 @@ function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
+    isAdminPage ? "" :
     <>
       <nav className='navBar' ref={navBarRef}>
         <div className='buttonsContainer'>

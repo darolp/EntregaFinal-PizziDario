@@ -4,8 +4,9 @@ import instagram from '../images/instagram.svg'
 import whatsapp from '../images/whatsapp.svg'
 import logo from '../images/logo.jpg'
 
-function Footer() {
+function Footer({isAdminPage}) {
   return (
+    isAdminPage? "" :
     <div className='footer'>
       <div className='footerRedes'>
         <h4>Seguinos en nuestras redes:</h4>
