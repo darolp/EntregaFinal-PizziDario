@@ -5,7 +5,7 @@ function Modal({ buyerInfo, handleBuyerInfoChange, handleCompletePurchase, setSh
     <div className='modalContainer'>
       <div className='modalBox'>
         <h2>Completa tus datos para realizar la compra</h2>
-        <form className='modalForm'>
+        <form className='modalForm' onSubmit={handleCompletePurchase}>
           <label>
             Nombre:
           </label>
@@ -21,16 +21,16 @@ function Modal({ buyerInfo, handleBuyerInfoChange, handleCompletePurchase, setSh
           <label>
             Confirmar Correo:
           </label>
-          <input type='email' className={validMail ? 'modalInput' : ` modalInput invalid`} name='email'  onChange={handleCheckEmail} required />
+          <input type='email' className={validMail ? 'modalInput' : ` modalInput invalid`} name='email' onChange={handleCheckEmail} required />
           <label>
             Dirección:
           </label>
           <input type='text' className='modalInput' name='address' value={buyerInfo.address} onChange={handleBuyerInfoChange} required />
+          <div className='modalButtonContainer'>
+            <button className='modalButton-buy'>Completar compra</button>
+            <button className='modalButton-back' onClick={() => setShowModal(false)}>Volver</button>
+          </div>
         </form>
-        <div className='modalButtonContainer'>
-          <button className='modalButton-buy'  onClick={handleCompletePurchase}>Completar compra</button>
-          <button className='modalButton-back' onClick={() => setShowModal(false)}>Volver</button>
-        </div>
       </div>
     </div>
   )

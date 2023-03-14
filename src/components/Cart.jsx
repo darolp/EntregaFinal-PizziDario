@@ -42,7 +42,12 @@ function Cart() {
     });
   }
 
-  const handleCompletePurchase = async () => {
+  const handleCompletePurchase = async (e) => {
+    e.preventDefault()
+    if(!validMail){
+      alert('Los correos electrónicos ingresados no coinciden. Por favor, inténtelo de nuevo.');
+      return;
+    }
     const purchaseData = {
       buyer: {
         name: buyerInfo.name,
