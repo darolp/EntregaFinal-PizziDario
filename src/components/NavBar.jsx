@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 
 function NavBar({isAdminPage}) {
+  
   const navBarRef = useRef();
   const logoContainerRef = useRef();
 

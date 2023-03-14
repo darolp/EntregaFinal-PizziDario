@@ -904,6 +904,15 @@ body {
 .adminMainBar{
   grid-area: navbar;
   background-color: #aaa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.adminLogoContainer{
+  width: 75px;
+  height: 75px;
 }
 
 .adminSideBar{
@@ -934,7 +943,9 @@ body {
   background-color: tomato;
 }
 
-@media screen and (max-width: 480px) {
+
+
+@media screen and (max-width: 760px) {
   .adminContainer{
     grid-template: 
     "navbar" 80px
@@ -954,4 +965,56 @@ body {
     width: 100vw;
     text-align: center;
   }
+}
+
+/* ADD PRODUCTS */
+.addProductsContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.addProductsContainer h2{
+  font-size: 1.3rem;
+}
+
+.formContainer{
+  display: grid;
+}
+
+.formContainer label{
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer input{
+  margin: auto;
+  color: black;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.formContainer textarea{
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.formStock label{
+  font-size: 1rem; 
+}
+
+.formStock input{
+  width: 30px;
+}
+
+@media screen and (min-width: 760px) {
+  .formContainer{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, 100px);
+  }
+  
 }

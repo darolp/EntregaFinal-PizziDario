@@ -27,6 +27,7 @@ function App() {
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkOut/:id' element={<CheckOut />} />
             <Route path='/admin' element={<Admin setIsAdminPage={setIsAdminPage} />} />
+            <Route path='/admin/:adminPanel' element={<Admin setIsAdminPage={setIsAdminPage} />} />
           </Routes>
           <Footer isAdminPage={isAdminPage} />
         </ContextProvider>
