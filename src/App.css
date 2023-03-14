@@ -1001,6 +1001,7 @@ body {
   display: block;
   margin: auto;
   border-radius: 5px;
+  color: #000000;
 }
 
 .formStock label{
@@ -1011,10 +1012,23 @@ body {
   width: 30px;
 }
 
+.formSubmit{
+  border-radius: 10px;
+  background-color: #138e17;
+  padding: 10px;
+}
+
 @media screen and (min-width: 760px) {
   .formContainer{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(6, 100px);
   }
   
+  .formStock{
+    grid-row: 2/5;
+  }
+
+  .btnContainer{
+    grid-column: 1/3;
+  }
 }

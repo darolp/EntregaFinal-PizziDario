@@ -3,6 +3,8 @@ import FormProduct from './FormProduct'
 function AddProducts() {
 
   const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("llegue aca")
   }
 
   return (
