@@ -55,7 +55,7 @@ function Cart() {
         email: buyerInfo.email,
         address: buyerInfo.address
       },
-      items: cartList.map(item => ({ id: item.idProducto, price: item.price, title: item.title })),
+      items: cartList.map(item => ({ id: item.idProducto, price: item.price, title: item.title , size: item.size, amount: item.amount})),
       timeStamp: new Date().toLocaleString('es-AR', { timeZone: 'UTC' }),
       state: "Generada",
       total: total
